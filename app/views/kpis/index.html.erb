@@ -1,0 +1,41 @@
+<div>
+  <h4>
+    <%= link_to  new_kpi_path, :class => [:btn, :"btn-success"] do |l|%>
+      <i class="icon-plus-sign icon-white"></i>
+      Add KPI
+    <% end %>
+  </h4>
+
+<table class="table">
+  <thead>    
+    <th>KPI Name</th> 
+    <th>Format</th>         
+    <th>Frequency</th>
+    <th>Direction</th>  
+    <th>Target</th>
+    <th>Entries</th>
+    <th>KPI Status</th>
+  </thead>
+
+<% @kpis.each do |kpi| %>  
+  <tr>    
+    <td><%= kpi.KPIName %></td>   
+    <td><%= kpi.KPIUnitName %></td>
+    <td><%= kpi.KPIEntryPeriod%></td> 
+    <td><%= kpi.KPIDirection %></td>       
+    <td><%= kpi.KPITargetValue %></td>               
+    <td><%=link_to 'Add Data',new_bkdetail_path(:kpi_id => kpi.id),:class => [:btn, :"btn-success"]%></td>
+    <td><%=link_to '[disable]' %></td>
+    <td><%= link_to 'Show', kpi %>  <%= link_to 'Edit', edit_kpi_path(kpi) %>
+        <%= link_to 'Destroy',kpi, method: :delete, data: {confirm: 'Are you sure?'} %>  
+    </td>   
+  </tr>
+<% end %>
+</table>
+<br />
+</div>
+
+
+
+
+

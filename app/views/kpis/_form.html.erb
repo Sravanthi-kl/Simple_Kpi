@@ -1,0 +1,49 @@
+  <%= form_for @kpi do |f| %>
+    <% if @kpi.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(@kpi.errors.count, "error") %> occured while processing:</h3>
+        <ul>
+        <% @kpi.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>    
+    <h4> Add KPI </h4>
+    <div>
+      <%= f.label 'Give your KPI a name' %>
+      <%= f.text_field :KPIName, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+    
+    <div>
+      <%= f.label 'When will this KPI be entered' %>
+        <%= f.select :KPIEntryPeriod,%w{Daily Monthly Quarterly HalfYearly Yearly},:include_blank => true %> 
+    </div>
+   
+    <div>
+      <%= f.label 'What is your KPI format?'%>
+      <%= f.select :KPIUnitName,%w{1,234 1234.5 12min 12hrs}, :maxlength => 50, :style => 'width:633px'%>
+    </div>
+    
+    <div>
+      <%= f.label 'Which direction is best?'%>  
+      <%= f.select :KPIDirection,["Up","Down","None"],:include_blank => true %>
+    </div>
+    
+    <div>
+      <%= f.label 'Does the KPI have a target'%>
+      <%= f.text_field :KPITargetValue, :class => 'title simple', :maxlength => 500, :style => 'width:633px'%>
+    </div>
+    
+    <div>
+      <%= f.label 'Which Category'%>
+      <%= f.select :KPICategory,["Collection Today","Renewals Today","Signup Today","AttritionToday","Circulation Today" ],:include_blank => true%>
+    </div>     
+    
+    <div class="actions">
+      <%=f.submit "Save" ,:class=>["btn","btn-primary"] %>
+      <%= link_to "Cancel", :back, :class=>["btn","btn-primary"] %>
+    </div>      
+    </br>
+
+<% end %>

@@ -2,11 +2,16 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.16'
 gem "less-rails",'2.3.3'
+gem 'activerecord-oracle_enhanced-adapter', '~> 1.4.0'
+gem 'i18n','0.6.4'
+gem 'execjs','2.2.1'
+gem 'ruby-oci8','2.1.7'
+gem 'thin'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'activerecord-oracle_enhanced-adapter', '~> 1.4.0'
+
 
 group :development, :test do
 	gem 'capistrano',"2.14.2"
@@ -27,12 +32,16 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :assets do
+    gem 'jquery-ui-rails'
+end
+
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails", '2.2.7'
 group :test do 
 
 gem 'faker' 
-gem 'capybara' ,'2.3.0'
+gem 'capybara' ,'2.2.0'
 gem 'guard-rspec' 
 gem 'launchy' 
 end

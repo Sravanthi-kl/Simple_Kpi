@@ -1,0 +1,61 @@
+<%= form_for @business do |f| %>
+  <% if @business.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@business.errors.count, "error") %> occured while processing:</h3>
+        <ul>
+          <% @business.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>    
+  <br />
+   
+  <h4>Branch Details</h4>
+    <div>
+      <%= f.label 'Branch Name*' %>
+      <%= f.text_field :branchname, :class => 'title simple custom', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+    
+    <div>
+      <%= f.label 'Branch Type*' %>
+      <%= f.select :branchtype,%w{Parentbranch Subsidary},:include_blank => true %> 
+    </div>
+   
+    <div>
+      <%= f.label 'Short Name*'%>
+      <%= f.text_field :shortname, :class => 'title simple', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+    
+    <div>
+      <%= f.label 'City*'%>  
+      <%= f.select :city,["Bangalore","Chennai","Delhi","Hyderabad","Mumbai","Kolkatta"],:include_blank => true %>
+    </div>
+    
+    <div>
+      <%= f.label 'Address*'%>
+      <%= f.text_field :branchaddress, :class => 'title simple', :maxlength => 500, :style => 'width:633px'%>
+    </div>
+    
+
+    <div>
+      <%= f.label 'Contact Numbers*'%>
+      <%= f.text_field :contactnumbers, :class => 'title simple', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+    
+    <div>
+      <%= f.label  'Working Hours'%>
+      <%= f.text_field :workinghours, :class => 'title simple', :maxlength => 100, :style => 'width:633px' , :value => 'Hours 10:00 AM TO 9:00 PM, MONDAY HOLIDAY'%>
+    </div>
+    
+    <div>
+      <%= f.label :Map_link,'Map Link' %>
+      <%= f.text_field :maplink, :class => 'title simple', :maxlength => 200, :style => 'width:633px'%>
+    </div>
+              
+    <div class="actions">
+      <%=f.submit "Submit" ,:class=>["btn","btn-primary"] %>
+    </div>
+
+    <% end %>
+    

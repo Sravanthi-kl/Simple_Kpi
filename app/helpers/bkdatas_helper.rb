@@ -1,0 +1,2 @@
+module BkdatasHelper
+end

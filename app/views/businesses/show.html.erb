@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Branch Name:</b>
+  <%= @business.branchname %>
+</p>
+
+<p>
+  <b>Branch Type:</b>
+  <%= @business.branchtype %>
+</p>
+
+<p>
+  <b>Short Name:</b>
+  <%= @business.shortname %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @business.city %>
+</p>
+
+
+<p>
+  <b>Branch Address:</b>
+  <%= @business.branchaddress %>
+</p>
+
+<p>
+  <b>Contact Numbers</b>
+  <%= @business.contactnumbers %>
+</p>
+
+<p>
+  <b>Working Hours</b>
+  <%= @business.workinghours %>
+</p>
+
+<p>
+  <b>Map Link:</b>
+  <%= @business.maplink %>
+</p>
+
+<%= link_to 'Edit', edit_business_path %> |
+<%= link_to 'Back', businesses_path %>

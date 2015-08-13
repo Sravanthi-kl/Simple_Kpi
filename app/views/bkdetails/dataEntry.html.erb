@@ -1,0 +1,14 @@
+<h4>Branch Kpi Details</h1>
+
+<ul class="nav nav-tabs"  id="tabs">
+  <li class="active">
+  	<%= link_to 'Daily',"/bkdetails/dataEntry?business_id=#{@business.id}&KPIEntryPeriod=Daily",:remote => true%>
+  </li>
+  <li>
+  	<%= link_to 'Monthly',"/bkdetails/dataEntry?business_id=#{@business.id}&KPIEntryPeriod=Monthly",:remote => true%>
+  </li>
+</ul>  
+<div class="tab-content">
+  <div class="tab-pane active" id="kpi-freq-content">
+   <%= render :partial => 'frequency' ,:locals => {:business_id => @business.id}%>
+  </div>

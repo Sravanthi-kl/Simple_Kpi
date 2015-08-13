@@ -1,0 +1,28 @@
+<%= form_tag ("/businesses/savelinkkpi ") do %>
+<%= hidden_field_tag :business_id, @business.id %> 
+<%= label_tag("Business Name:")%>
+<%= @business.branchname %>
+	<table class="table">
+		<thead>    
+      		<th>Select </th>
+      		<th>KPI Name</th>              
+      		<th>Frequency</th>
+      		<th>Category</th>
+    	</thead>
+        <% if !@kpi.blank? %>
+		    <% @kpi.each do |kpi| %>	  	
+	  		 	<tr>	
+	  	  			<td><%= check_box_tag "kpi_ids[]",kpi.id,@mapped_kpi_ids.include?(kpi.id)%></td>
+	  	  			<td><%= kpi.KPIName %></td>        			
+	  	  			<td><%= kpi.KPIEntryPeriod %></td>  
+	      			<td><%= kpi.KPICategory %></td> 	      			
+    			</tr>	    
+	    	<% end %>    
+		<% end %>
+	</table> 
+
+<div class="actions">
+    <%= submit_tag %>,
+</div>
+
+<% end %>

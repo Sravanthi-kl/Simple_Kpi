@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Kpi Name:</b>
+  <%= @kpi.KPIName %>
+</p>
+
+<p>
+  <b>Kpi Format</b>
+  <%= @kpi.KPIUnitName %>
+</p>
+
+<p>
+  <b>Kpi Frequency</b>
+  <%= @kpi.KPIEntryPeriod %>
+</p>
+
+
+<%= link_to 'Edit', edit_kpi_path %> |
+<%= link_to 'Back', kpis_path %>
+

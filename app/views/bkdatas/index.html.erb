@@ -1,0 +1,31 @@
+<div>
+  <h4>
+     Add details
+  </h4>
+
+<table class="table">
+  <thead>    
+    <th>Target</th> 
+    <th>Actual</th>         
+    <th>Day</th>
+    <th>Notes</th>  
+  </thead>
+
+<% @bk_datas.each do |bk_data| %>
+  <tr>
+    <td><%= bk_data.targetValue %></td>               
+    <td><%= bk_data.actualValue %></td>
+    <td><%= bk_data.logDate%></td> 
+    <td><%= bk_data.notes %></td>                   
+    <td><%= link_to 'Show', bkdata %> 
+        <%= link_to 'Edit', edit_bkdata_path(bkdata)%>
+        <%= link_to 'Destroy',bkdata, method: :delete, data: {confirm: 'Are you sure?'} %>       
+    </td>  
+  </tr>
+<% end %>
+
+</table>
+<br />
+</div>
+
+

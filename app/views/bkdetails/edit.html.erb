@@ -1,0 +1,58 @@
+<h4>Edit Details</h4>
+
+ <table border="1"> 
+ <%= form_for @bkdetail do |f| %>   
+        <% if @bkdetail.errors.any? %>
+          <div id="error_explanation">
+          <h3><%= pluralize(@bkdetail.errors.count, "error") %> occured while processing:</h3>
+          <ul>
+            <% @bkdetail.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+          </ul>
+          </div>
+        <% end %>
+            
+                
+        <%= f.hidden_field :kpi_id,:value => @kpi.id%>
+        <%= f.hidden_field :business_id,:value => @business.id%>  
+        <%= f.hidden_field :businesskpi_id,:value => @bkpi.id%>  
+        <td><%= @kpi.KPIName %></td>
+        <td><%= @kpi.KPICategory %></td>
+        <td>
+          <% if @kpi.KPIEntryPeriod == 'Daily'%>
+            <%= f.text_field :logDate, :class => 'title simple custom date_picker_input', :maxlength => 5, :style => 'width:60px'%>
+          <% elsif @kpi.KPIEntryPeriod == 'Monthly'%>
+            <%= f.text_field :logDate, :class => 'title simple custom month_picker_input',:maxlength => 5, :style => 'width:60px'%>
+          <% elsif @kpi.KPIEntryPeriod == 'Quarterly'%>
+            <%= f.text_field :logDate, :class => 'title simple custom quarter_picker_input',:maxlength => 5, :style => 'width:60px'%> 
+          <% elsif @kpi.KPIEntryPeriod == 'HalfYearly'%>
+            <%= f.text_field :logDate, :class => 'title simple custom halfyear_picker_input',
+            :maxlength => 5, :style => 'width:60px'%>
+          <% else%>  
+            <%= f.text_field :logDate, :class => 'title simple custom year_picker_input',
+            :maxlength => 5, :style => 'width:60px'%>
+          <%end%>
+        </td>
+
+        <td><%= f.text_field :targetValue ,:value => @kpi.KPITargetValue,:maxlength => 5, :style => 'width:60px'%></td>
+        <td><%= f.text_field :actualValue,:maxlength => 5, :style => 'width:60px'%></td>
+        <td><%= f.text_field :targetPercentage,:maxlength => 5,:style => 'width:60px'%></td>
+        <td><%= f.text_field :notes,:maxlength => 5, :style => 'width:60px'%></td>                  
+        <td>
+          <div class="actions">
+          <%= f.submit "save" ,:class=>["btn","btn-primary"] %>          
+          </div>
+        </td>    
+      <%end%>
+    </tr>
+
+  </table>
+</div>
+
+
+
+     
+<%= link_to "Back", bkdetails_path,:class=>["btn","btn-default"] ,:id=>"backbutton"%>
+<%= link_to 'Show', @bkdetail,:class=>["btn","btn-default"] ,:id=>"backbutton" %> 
+    

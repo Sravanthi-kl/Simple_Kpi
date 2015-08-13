@@ -1,0 +1,26 @@
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
+    <script type="text/javascript">
+      google.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Actual', 'Target'],
+           <% @bk.each do |bic| %>
+          ['<%= bic.logDate.to_date %>',<%= bic.actualValue rescue 0 %>,<%= bic.targetValue rescue 0%>],
+          <% end %>
+        ]);
+
+        var options = {
+          title : 'Performance Graph',
+          vAxis: {title: "Actual"},
+          hAxis: {title: "Date"},
+          seriesType: "bars",
+            series: {2:{type: "line"}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('rentals_trend_div'));
+        chart.draw(data, options);
+      }
+    </script> 
+<div id="rentals_trend_div" style="width: 900px; height: 500px;"></div>

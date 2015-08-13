@@ -11,8 +11,26 @@ SimpleKpi::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+    resources :kpis
+    resources :businesskpis  
+#    resources :registerreports
+    resources :bkdetails do 
+      collection do 
+        get 'dataEntry'
+        get 'dataFeed'
+      end
+    end 
+    
+#    resources :franchisemasters   
 
+    resources :businesses do
+      collection do
+        post 'savelinkkpi'
+        get 'businesslinkkpi'        
+      end
+    end
+
+  match '/get_target_percentage' => 'bkdetails#get_target_percentage'
   # Sample resource route with options:
   #   resources :products do
   #     member do
@@ -48,7 +66,7 @@ SimpleKpi::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+#   root :to => 'businesses#home'
 
   # See how all your routes lay out with "rake routes"
 
