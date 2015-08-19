@@ -11,35 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150811120340) do
-
-  create_table "bk_data", :force => true do |t|
-    t.datetime "logDate"
-    t.integer  "actualValue",      :precision => 38, :scale => 0
-    t.integer  "targetPercentage", :precision => 38, :scale => 0
-    t.integer  "targetValue",      :precision => 38, :scale => 0
-    t.text     "notes"
-    t.integer  "kpi_id",           :precision => 38, :scale => 0
-    t.integer  "business_id",      :precision => 38, :scale => 0
-    t.integer  "businesskpi_id",   :precision => 38, :scale => 0
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
-  end
+ActiveRecord::Schema.define(:version => 20150816125406) do
 
   create_table "bkdetails", :force => true do |t|
-    t.datetime "logDate"
-    t.integer  "actualValue",      :precision => 38, :scale => 0
-    t.integer  "targetPercentage", :precision => 38, :scale => 0
-    t.integer  "targetValue",      :precision => 38, :scale => 0
-    t.text     "notes"
-    t.integer  "kpi_id",           :precision => 38, :scale => 0
-    t.integer  "business_id",      :precision => 38, :scale => 0
-    t.integer  "businesskpi_id",   :precision => 38, :scale => 0
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
-  end
-
-  create_table "business_kpi_data", :force => true do |t|
     t.datetime "logDate"
     t.integer  "actualValue",      :precision => 38, :scale => 0
     t.integer  "targetPercentage", :precision => 38, :scale => 0
@@ -72,6 +46,19 @@ ActiveRecord::Schema.define(:version => 20150811120340) do
     t.string   "city"
     t.string   "maplink"
     t.string   "workinghours"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "franchisemasters", :force => true do |t|
+    t.string   "franchiseename"
+    t.string   "franchisename"
+    t.string   "franchisetype"
+    t.string   "emailid"
+    t.datetime "openingdate"
+    t.datetime "effectivefrom"
+    t.string   "business_id"
+    t.string   "address"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end

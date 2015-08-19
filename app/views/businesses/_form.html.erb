@@ -52,6 +52,11 @@
       <%= f.label :Map_link,'Map Link' %>
       <%= f.text_field :maplink, :class => 'title simple', :maxlength => 200, :style => 'width:633px'%>
     </div>
+
+    <div>
+      <%= f.label 'Owner ID' %>
+      <%= f.text_field :owner_id, :class => 'title simple', :maxlength => 200, :style => 'width:633px'%>
+    </div>
               
     <div class="actions">
       <%=f.submit "Submit" ,:class=>["btn","btn-primary"] %>

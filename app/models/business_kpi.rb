@@ -4,5 +4,5 @@ class BusinessKpi < ActiveRecord::Base
   belongs_to :kpi
   belongs_to :business
   has_many :bkdetails
-  validates :kpi_id, :uniqueness => true
+  #validates :kpi_id, :uniqueness => true
 end

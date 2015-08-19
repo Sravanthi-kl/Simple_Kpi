@@ -23,7 +23,7 @@
             <%= link_to 'Destroy',business, method: :delete, data: {confirm: 'Are you sure?'} %> 
             <%= link_to 'AddKPIData',dataEntry_bkdetails_path(:business_id => business.id),:class=>["btn","btn-default"] %>
             <%=link_to 'Feed',dataFeed_bkdetails_path(:business_id => business.id),:class => [:btn, :"btn-success"]%>
-            <%=link_to 'LinkKpi',businesslinkkpi_businesses_path(:bus_id => business.id),:class => [:btn, :"btn-success"]%>   
+            <%=link_to 'LinkKpi',businesslinkkpi_businesses_path(:business_id => business.id),:class => [:btn, :"btn-success"]%>   
 
         </td>    
       </tr>

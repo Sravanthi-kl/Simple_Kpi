@@ -65,32 +65,24 @@ class BusinessesController < ApplicationController
   end
 
   def businesslinkkpi
-  #@businesskpi = BusinessKpi.new
-  @business = Business.find(params[:bus_id])
+  @businesskpi = BusinessKpi.new
+  @business = Business.find(params[:business_id])
   @mapped_kpi_ids = BusinessKpi.where(:business_id => @business.id).pluck('kpi_id')
   @kpi = Kpi.all
     respond_to do |format|
     format.html # index.html.erb
-    format.xml  { render json: @business }
+    format.xml  { render json: @businesskpi }
     end
   end  
 
   def savelinkkpi  
-    @business = Business.find(params[:business_id])
-    @mapped_kpi_ids = BusinessKpi.where(:business_id => @business.id).pluck('kpi_id')  
-    delete_kpi_ids = @mapped_kpi_ids - params[:kpi_ids]
-    BusinessKpi.delete(delete_kpi_ids)
-    add_kpi_ids= params[:kpi_ids] - @mapped_kpi_ids
+    @business = Business.find(params[:business_id])    
+    BusinessKpi.where(:business_id => @business.id).destroy_all
+    add_kpi_ids= params[:kpi_ids]
     add_kpi_ids.each do |kpi_id|
       bk=BusinessKpi.new
       bk.kpi_id = kpi_id.to_i
       bk.business_id = params[:business_id].to_i
-     # business=Business.find(bk.business_id)
-     # bk.branchname=business.branchname
-     # kpi = Kpi.find(kpi_id)
-     # bk.kpiname = kpi.kpiname
-     # bk.kpifrequency = kpi.kpifrequency
-     # bk.kpicategory = kpi.kpicategory
       bk.save
     end   
     respond_to do |format|

@@ -13,15 +13,18 @@ SimpleKpi::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
     resources :kpis
     resources :businesskpis  
+
 #    resources :registerreports
+   
     resources :bkdetails do 
       collection do 
         get 'dataEntry'
         get 'dataFeed'
       end
     end 
-    
-#    resources :franchisemasters   
+
+    get 'businesses/home'
+    resources :franchisemasters   
 
     resources :businesses do
       collection do
@@ -31,18 +34,20 @@ SimpleKpi::Application.routes.draw do
     end
 
   match '/get_target_percentage' => 'bkdetails#get_target_percentage'
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
 
+
+
+  namespace :api do 
+    namespace :v1 do
+     post 'kpis/create' => 'kpis#create'
+     post 'bkdetails/create' => 'bkdetails#create'
+    end
+
+  end
+
+
+  #api
+                         
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

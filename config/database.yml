@@ -7,8 +7,8 @@
 development:
   adapter: oracle_enhanced
   database: XE
-  username: simplekpi
-  password: simplekpi
+  username: skpi
+  password: skpi
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -16,12 +16,12 @@ development:
 test:
   adapter: oracle_enhanced
   database: XE
-  username: simplekpi_test
-  password: simplekpi_test
+  username: skpi_test
+  password: skpi_test
 
 
 production:
   adapter: oracle_enhanced
   database: XE
-  username: simplekpi
-  password: simplekpi
+  username: skpi
+  password: skpi

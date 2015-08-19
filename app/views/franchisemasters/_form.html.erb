@@ -1,0 +1,65 @@
+<%= form_for @franchisemaster do |f| %>
+  <% if @franchisemaster.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@franchisemaster.errors.count, "error") %> occured while processing:</h3>
+      <ul>
+      <% @franchisemaster.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>    
+  <br />
+    
+  <h4>Franchise Details</h4>
+    
+    <div>
+      <%= f.label 'Franchise Type*' %>
+      <%= f.text_field :franchisetype, :class => 'title simple', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+    
+    <div >
+      <%= f.label 'Franchise Name*' %>
+        <%= f.text_field :franchisename %>
+    </div>
+   
+    <div>
+      <%= f.label 'Franchisee Name*'%>
+      <%= f.text_field :franchiseename, :class => 'title simple', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+    
+    <div>
+      <%= f.label 'Email*'%>  
+      <%= f.text_field :emailid,:class => 'title simple', :maxlength => 50, :style => 'width:633px'%>
+    </div>   
+    
+
+    <div>
+      <%= f.label 'Address*'%>  
+      <%= f.text_field :address,:class => 'title simple', :maxlength => 50, :style => 'width:633px'%>
+    </div>  
+
+    
+    <div>
+      <%= f.label 'Opening Date*'%>
+      <%= f.text_field :openingdate, :class => 'title simple', :maxlength => 500, :style => 'width:633px'%>
+    </div>
+    
+
+    <div>
+      <%= f.label 'Effective From*'%>
+      <%= f.text_field :effectivefrom, :class => 'title simple', :maxlength => 50, :style => 'width:633px'%>
+    </div>
+
+
+    <div>
+      <%= f.label 'Business Id'%>  
+      <%= f.text_field :business_id,:class => 'title simple', :maxlength => 50, :style => 'width:633px'%>
+    </div> 
+              
+    <div class="actions">
+            <%=f.submit "Submit" ,:class=>["btn","btn-primary"] %>
+    </div>
+
+<% end %>
+    

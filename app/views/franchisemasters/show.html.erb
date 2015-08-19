@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Franchise Type:</b>
+  <%= @franchisemaster.franchisetype %>
+</p>
+
+<p>
+  <b>Franchise Name:</b>
+  <%= @franchisemaster.franchisename %>
+</p>
+
+<p>
+  <b>Franchisee Name:</b>
+  <%= @franchisemaster.franchisename %>
+</p>
+
+<p>
+  <b>Owner Email:</b>
+  <%= @franchisemaster.emailid%>
+</p>
+
+<p>
+  <b>Owner Address:</b>
+  <%= @franchisemaster.address%>
+</p>
+
+
+<p>
+  <b>Opening Date: </b>
+  <%= @franchisemaster.openingdate %>
+</p>
+
+<p>
+  <b>Effective From</b>
+  <%= @franchisemaster.effectivefrom %>
+</p>
+
+
+<%= link_to 'Edit', edit_franchisemaster_path %> |
+<%= link_to 'Back', franchisemasters_path %>

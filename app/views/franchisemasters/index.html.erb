@@ -1,0 +1,28 @@
+<div>
+  <h4>
+    <%= link_to  new_franchisemaster_path, :class => [:btn, :"btn-success"] do |l|%>
+      <i class="icon-plus-sign icon-white"></i>
+      Add New Franchisee
+    <% end %>
+  </h4>
+<table class="table table-striped table-bordered">
+  <thead>
+    <th>Franchise Type</th>          
+    <th>Franchise Name</th>
+    <th>Owner Email</th>            
+  </thead>
+
+<% @franchisemasters.each do |franchisemaster| %>
+  <tr>
+    <td><%= franchisemaster.franchisetype %></td>               
+    <td><%= franchisemaster.franchiseename %></td>
+    <td><%= franchisemaster.emailid%></td>               
+    <td><%= link_to 'Show',franchisemaster %>  <%= link_to 'Edit', edit_franchisemaster_path(franchisemaster)%>
+        <%= link_to 'Destroy',franchisemaster, method: :delete, data: {confirm: 'Are you sure?'} %> 
+        <%= link_to 'AddBusiness',new_business_path,:class=>["btn","btn-default"] %>  
+    </td>
+  </tr>
+<% end %>
+</table>
+<br />
+</div>
