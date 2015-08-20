@@ -23,5 +23,5 @@ test:
 production:
   adapter: oracle_enhanced
   database: XE
-  username: skpi
-  password: skpi
+  username: skpi_staging
+  password: skpi_staging
