@@ -30,11 +30,11 @@ class BkdetailsController < ApplicationController
   end
 
   def create   
-    @bks = Bkdetail.all  
-    @bkdetail = Bkdetail.new(params[:bkdetail]) 
-    @business = Business.find(@bkdetail.business_id)   
-    @kpi = Kpi.find(@bkdetail.kpi_id)
+    @bkdetail = Bkdetail.new(params[:bkdetail])     
+    @bks = Bkdetail.where("kpi_id = ? and business_id = ? and businesskpi_id =? ",@bkdetail.kpi_id,@bkdetail.business_id,@bkdetail.businesskpi_id)        
+    @business = Business.find(@bkdetail.business_id)       
     @bkpi = BusinessKpi.find(@bkdetail.businesskpi_id)
+    @kpi = Kpi.find(@bkdetail.kpi_id)
     
     respond_to do |format|
       if @bkdetail.save
@@ -84,7 +84,7 @@ class BkdetailsController < ApplicationController
   end
   
   def dataEntry    
-    freq = params[:KPIEntryPeriod] || "Daily"
+    freq = params[:KPIEntryPeriod] || "DAILY"
     @business = Business.find(params[:business_id]) 
     @mapped_kpi_ids = BusinessKpi.where(:business_id => @business.id,:kpi_id => Kpi.where(:KPIEntryPeriod => freq))
     @bkpi=BusinessKpi.new      

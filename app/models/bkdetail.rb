@@ -5,7 +5,7 @@ class Bkdetail < ActiveRecord::Base
   belongs_to :business
   belongs_to :businesskpi
 
-  validates :logDate,:uniqueness => true
-  
+  validates  :actualValue,:logDate,:presence => true
+  validates  :logDate,:uniqueness => true 
   
 end

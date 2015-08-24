@@ -4,7 +4,7 @@
 
       function drawVisualization() {
         // Some raw data (not necessarily accurate)
-        <% bks = Bkdetail.where("kpi_id = ? and business_id = ? ",kpi_id,business_id) %>
+        <% bks = Bkdetail.where("kpi_id = ? and business_id = ?",kpi_id,business_id) %>
         var data = google.visualization.arrayToDataTable([
           ['Date', 'Actual', 'Target'],
            <% bks.each do |bic| %>

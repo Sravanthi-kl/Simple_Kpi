@@ -2,10 +2,10 @@
 
 <ul class="nav nav-tabs"  id="tabs">
   <li class="active">
-  	<%= link_to 'Daily',"/bkdetails/dataEntry?business_id=#{@business.id}&KPIEntryPeriod=Daily",:remote => true%>
+  	<%= link_to 'Daily',"/bkdetails/dataEntry?business_id=#{@business.id}&KPIEntryPeriod=DAILY",:remote => true%>
   </li>
   <li>
-  	<%= link_to 'Monthly',"/bkdetails/dataEntry?business_id=#{@business.id}&KPIEntryPeriod=Monthly",:remote => true%>
+  	<%= link_to 'Monthly',"/bkdetails/dataEntry?business_id=#{@business.id}&KPIEntryPeriod=MONTHLY",:remote => true%>
   </li>
 </ul>  
 <div class="tab-content">

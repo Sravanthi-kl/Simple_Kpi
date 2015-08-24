@@ -9,7 +9,7 @@ class Business < ActiveRecord::Base
   validates :branchaddress,:branchname,:contactnumbers,:branchtype,:city,:workinghours,:shortname,:maplink,:presence => true
   validates :branchname,:shortname, :length => { :maximum =>10 }
   validates :branchname,:uniqueness => true
-  validates :contactnumbers,format: { with: /\d{3}-\d{3}-\d{4}/, message: "Valid Format :xxx-xxx-xxx" }
+ #  validates :contactnumbers,format: { with: /\d{3}-\d{3}-\d{4}/, message: "Valid Format :xxx-xxx-xxx" }
 
 
 end
