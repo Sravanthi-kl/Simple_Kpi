@@ -20,13 +20,13 @@
         <td><%= @kpi.KPIName %></td>
         <td><%= @kpi.KPICategory %></td>
         <td>
-          <% if @kpi.KPIEntryPeriod == 'Daily'%>
+          <% if @kpi.KPIEntryPeriod == 'DAILY'%>
             <%= f.text_field :logDate, :class => 'title simple custom date_picker_input', :maxlength => 5, :style => 'width:60px'%>
-          <% elsif @kpi.KPIEntryPeriod == 'Monthly'%>
+          <% elsif @kpi.KPIEntryPeriod == 'MONTHLY'%>
             <%= f.text_field :logDate, :class => 'title simple custom month_picker_input',:maxlength => 5, :style => 'width:60px'%>
-          <% elsif @kpi.KPIEntryPeriod == 'Quarterly'%>
+          <% elsif @kpi.KPIEntryPeriod == 'QUARTERLY'%>
             <%= f.text_field :logDate, :class => 'title simple custom quarter_picker_input',:maxlength => 5, :style => 'width:60px'%> 
-          <% elsif @kpi.KPIEntryPeriod == 'HalfYearly'%>
+          <% elsif @kpi.KPIEntryPeriod == 'HALFYEARLY'%>
             <%= f.text_field :logDate, :class => 'title simple custom halfyear_picker_input',
             :maxlength => 5, :style => 'width:60px'%>
           <% else%>  
