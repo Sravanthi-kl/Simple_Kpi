@@ -7,8 +7,8 @@
         <% bks = Bkdetail.where("kpi_id = ? and business_id = ?",kpi_id,business_id) %>
         var data = google.visualization.arrayToDataTable([
           ['Date', 'Actual', 'Target'],
-           <% bks.each do |bic| %>
-          ['<%= bic.logDate %>',<%= bic.actualValue rescue 0 %>,<%= bic.targetValue rescue 0%>],
+           <% bks.each do |bic| %>           
+          ['<%= bic.logDate %>',<%= bic.actualValue rescue 0 %>,<%= bic.targetValue rescue 0%>],           
           <% end %>
         ]);
 

@@ -16,8 +16,8 @@ development:
 test:
   adapter: oracle_enhanced
   database: XE
-  username: skpi_test
-  password: skpi_test
+  username: simplekpi_test
+  password: simplekpi_test
 
 
 production:
